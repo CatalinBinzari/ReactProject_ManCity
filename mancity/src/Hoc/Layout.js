@@ -1,10 +1,11 @@
 import React from "react";
 import Header from "../Components/Header_footer/Header";
+import Footer from "../Components/Header_footer/Footer";
 //compoents
 const Layout = (props) => {
   return (
     <div>
-      <Header /> {props.children} footer
+      <Header /> {props.children} <Footer />
     </div>
   );
 };
