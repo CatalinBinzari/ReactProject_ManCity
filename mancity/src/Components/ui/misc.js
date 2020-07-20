@@ -47,6 +47,12 @@ export const validate = (element) => {
   //element contains all the data we have
   let error = [true, ""]; //if is valid, we return an array, containing input: true/false and message" valid email/please enter valid email
 
+  if (element.validation.email) {
+    const valid = /\S+@\S+\.\S+/.test(element.value);
+    const message = `${!valid ? "Must be  a valid email" : ""}`;
+    error = !valid ? [valid, message] : error;
+  }
+
   if (element.validation.required) {
     //true
     const valid = element.value.trim() !== ""; //trim  and evaluate if value is equal with nothing //return true or false
