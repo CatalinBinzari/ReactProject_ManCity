@@ -50,7 +50,7 @@ const AdminNav = () => {
   return (
     <div>
       {renderItems()}
-      <ListItem buttom style={style} onClick={() => logoutHandler()}>
+      <ListItem button style={style} onClick={() => logoutHandler()}>
         Log out
       </ListItem>
     </div>

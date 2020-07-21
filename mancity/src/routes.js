@@ -7,6 +7,10 @@ import SignIn from "./Components/signin";
 import Dashboard from "./Components/admin/Dashboard";
 
 import PrivateRoute from "./Components/authRouters/privateRoutes";
+import PublicRoute from "./Components/authRouters/publicRoutes.js";
+import AdminMatches from "./Components/admin/matches";
+import AddEditMatch from "./Components/admin/matches/addEditMatch";
+
 //whatever components between header and footer
 const Routes = (props) => {
   console.log(props);
@@ -15,12 +19,40 @@ const Routes = (props) => {
       <Switch>
         <PrivateRoute
           {...props}
+          path="/admin_matches/edit_match/:id"
+          exact
+          component={AddEditMatch}
+        />
+
+        <PrivateRoute
+          {...props}
+          path="/admin_matches"
+          exact
+          component={AdminMatches}
+        />
+
+        <PrivateRoute
+          {...props}
           path="/dashboard"
           exact
           component={Dashboard}
         />
-        <Route exact component={Home} path="/" />
-        <Route exact component={SignIn} path="/sign_in" />
+
+        <PublicRoute
+          {...props}
+          restricted={true} //anyone can view
+          path="/sign_in"
+          exact
+          component={SignIn}
+        />
+
+        <PublicRoute
+          {...props}
+          restricted={false} //if user is sign_in, he will not be able to see this
+          path="/"
+          exact
+          component={Home}
+        />
       </Switch>
     </Layout>
   );

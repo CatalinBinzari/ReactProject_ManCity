@@ -1,4 +1,5 @@
 import React from "react";
+import AdminLayout from "../../Hoc/AdminLayout";
 
 const FormField = ({ formdata, id, change }) => {
   const showError = () => {
@@ -18,6 +19,9 @@ const FormField = ({ formdata, id, change }) => {
       case "input":
         formTemplate = (
           <div>
+            {formdata.showlabel ? (
+              <div className="label_inputs"> {formdata.config.label}</div>
+            ) : null}
             <input
               {...formdata.config}
               value={formdata.value}
