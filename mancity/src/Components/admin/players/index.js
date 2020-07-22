@@ -19,6 +19,7 @@ class AdminPlayers extends Component {
   componentDidMount() {
     firebasePlayers.once("value").then((snapshot) => {
       const players = firebaseLooper(snapshot); //to have key and values in the same place
+      //console.log(snapshot.val());
       this.setState({
         isloading: false,
         players: reverseArray(players),

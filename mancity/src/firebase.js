@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/app";
 import "firebase/database";
 import "firebase/auth";
-
+import "firebase/storage";
 const config = {
   apiKey: "AIzaSyDtftCYpY6HvEpMgUG_bEO0oZ0ELovQgUs",
   authDomain: "m-city-da416.firebaseapp.com",

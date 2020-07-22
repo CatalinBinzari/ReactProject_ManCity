@@ -11,6 +11,7 @@ import PublicRoute from "./Components/authRouters/publicRoutes.js";
 import AdminMatches from "./Components/admin/matches";
 import AddEditMatch from "./Components/admin/matches/addEditMatch";
 import AdminPlayers from "./Components/admin/players";
+import AddEditPlayers from "./Components/admin/players/addEditPlayers";
 
 //whatever components between header and footer
 const Routes = (props) => {
@@ -18,6 +19,20 @@ const Routes = (props) => {
   return (
     <Layout>
       <Switch>
+        <PrivateRoute
+          {...props}
+          path="/admin_players/add_players"
+          exact
+          component={AddEditPlayers}
+        />
+
+        <PrivateRoute
+          {...props}
+          path="/admin_players/add_players/:id"
+          exact
+          component={AddEditPlayers}
+        />
+
         <PrivateRoute
           {...props}
           path="/admin_players"
